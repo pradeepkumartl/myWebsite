@@ -1,0 +1,41 @@
+<div class="container-fluid fluidCls">
+  <div class="loginDiv">
+    <div class="h-20 heading mt-2">
+      <h4 appLoginWelcome></h4>
+    </div>
+    <div class="mt-4 mx-auto formMain">
+    <form #loginForm="ngForm" novalidate="novalidate" (ngSubmit)="login()" appLoginFieldsValidator>
+      <div class="form-group">
+        <div><label>Email</label></div>
+        <input type="email" id="email" autocomplete="off" [(ngModel)]="username" name="username" #inpUser="ngModel"
+        appLoginValidator class="w-100 form-control" required="required" minlength=10 [ngClass]="{'is-invalid': inpUser.invalid && (inpUser.dirty || loginForm.submitted)}">
+        <span class="text-danger" *ngIf="inpUser.errors?.required && (inpUser.dirty || loginForm.submitted)">User name is required</span>
+        <span class="text-danger" *ngIf="inpUser.errors?.minlength && (inpUser.dirty || loginForm.submitted)">User name should be at least 10 characters</span>
+        <span class="text-danger" *ngIf="inpUser.errors?.validation && (inpUser.dirty || loginForm.submitted)">Validation failed</span>
+      </div>
+      <div class="form-group">
+        <div><label for="password">Password</label></div>
+        <input type="password" id="password" [(ngModel)]="password" name="password" #inpPassword="ngModel"
+        class="w-100  form-control" required="required" minlength=6 [ngClass]="{ 'is-invalid' :inpPassword.dirty && inpPassword.touched && inpPassword.invalid}">
+        <span class="text-danger" *ngIf="(inpPassword.dirty || loginForm.submitted) && inpPassword.errors?.minlength">Password should be at least 6 characters</span>
+        <span class="text-danger" *ngIf="(inpPassword.dirty || loginForm.submitted) && inpPassword.errors?.required">Password is mandatory</span>
+      </div>
+      <span class="text-danger" *ngIf="loginForm.errors?.sameValue">User name and Password cannot be same</span>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox"> Remember Me?
+        </label>
+      </div>
+      <div class="h-10 my-2 mx-auto">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </form>
+  </div>
+    <!-- <div class="h-10 my-2">
+      <button class="btn btn-primary" (click)="login()">Login</button>
+    </div> -->
+    <div class="h-10 my-2">
+      <button class="btn btn-secondary" (click)="signup($event)">Sign up</button>
+    </div>
+  </div>
+</div>

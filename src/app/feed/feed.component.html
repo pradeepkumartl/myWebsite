@@ -1,0 +1,46 @@
+<div class="imgShow">
+  <img *ngFor="let image of imgList" src="{{image}}">
+  <!-- <span class="nextSpan">
+    <a class="next">&#10095;</a>
+  </span> -->
+</div>
+<!-- <div class="imgShow">
+  <ng-template #imgTpl>
+    <span >ABC</span>
+  </ng-template>
+</div> -->
+<div class="story justify-content-center" *ngFor="let i of [1,2]">
+  <div>
+    <div class="d-flex flex-row">
+      <div>
+        <img class="profilePic" src={{story.profilePic}}>
+      </div>
+      <div class="d-flex flex-column">
+        <p class="my-0"><b>{{story.profileName}}</b></p>
+        <p class="font-weight-light">16 hrs</p>
+      </div>
+    </div>
+    <!-- <span><img class="profilePic" src={{story.profilePic}} alt=""></span>
+    <span style="display:inline">
+      <label style="display:block">{{story.profileName}}</label>
+      <label style="display:block">16 hrs</label>
+    </span> -->
+    <p>{{story.content}}</p>
+    <div>
+      <video *ngIf="story.contentType=='video'" height=200px width="100%" controls>
+        <source type="video/mp4" src={{story.contentSrc}}>
+      </video>
+      <img *ngIf="story.contentType=='image'" src={{story.contentSrc}} height=300px width="300px">
+      <div class="d-flex justify-content-between">
+        <div>
+          <i [ngClass]="{'fa fa-heart': story.loveReaction}"></i>
+          <i [ngClass]="{'fa fa-thumbs-up': story.likeReaction}"></i>
+          <label class="ml-1">{{story.reactionsCount}}</label>
+        </div>
+        <div>
+          <label>{{story.commentsCount}} comments</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

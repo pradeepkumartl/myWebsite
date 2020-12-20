@@ -1,0 +1,11 @@
+.sideTable div{
+    height: 50px;
+    width: 85%;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 25px;
+}
+
+.sideTable div:hover{
+    background-color: #f0f0f0;
+}

@@ -1,0 +1,42 @@
+html,body{
+    overflow: scroll;
+}
+
+.fluidCls{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /* background-color: aliceblue; */
+    background-image: url('../../assets/images/loginPage.JPG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.loginDiv{
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    height: 60%;
+    width: 35%;
+    margin: auto;
+    background-color: #fff;
+    transform: translate(-50%,-50%);
+}
+
+.formMain{
+    height: 60%;
+    width: 70%;
+    margin: auto;
+    text-align: start;
+}
+
+.bottomBorder{
+    border-width: 0px 0px 2px 0px !important;
+    border-color: blue;
+}
+
+input:focus{
+    outline: none;
+}
